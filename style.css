@@ -180,9 +180,9 @@ body {
 }
 
 .sun {
-    position: relative;
-    top: -40%;
-    left: 44%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
     border-radius: 50%;
     background-color: #fdb03c;
     width: 100px;
