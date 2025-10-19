@@ -1,19 +1,8 @@
 :root {
-    --base-color: white;
-    --base-variant: #f0f0f0;
-    --text-color: #1a1a1a;
-    --secondary-text: #666666;
-    --primary-color: #d8d8d8;
-    --accent-color: #d0d0d0;
-}
-
-.darkmode {
-    --base-color: #0f0f0f;
-    --base-variant: #1d1d1d;
-    --text-color: #f5f5f5;
-    --secondary-text: #b0b0b0;
-    --primary-color: #131212;
-    --accent-color: #d0d0d0;
+    --base-color: rgb(44, 53, 73);
+    --base-variant: rgb(63, 73, 95);
+    --text-color: #ffffff;
+    --primary-color: rgb(39, 52, 78);
 }
 
 * {
@@ -54,7 +43,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--secondary-text);
+    color: var(--text-color);
     font-size: 18px;
     position: relative;
     overflow: hidden;
@@ -83,7 +72,7 @@ body {
 
 .panel-header p {
     font-size: 12px;
-    color: var(--secondary-text);
+    color: var(--text-color);
 }
 
 .panel-content {
@@ -117,11 +106,52 @@ body {
     display: block;
     font-size: 12px;
     font-weight: 600;
-    color: var(--secondary-text);
+    color: var(--text-color);
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+
+.slideContainer {
+    width: 100%;
+    height: 100px;
+    margin-top: 10%;
+}
+
+.slider {
+    position: relative;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg, rgb(39, 52, 78) 0%, rgb(79, 103, 150) 0%);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 12px;
+    box-shadow: 0px 1px 10px 1px black;
+}
+
+#pValue {
+    color: var(--text-color);
+    margin-top: 13px;
+    margin-left: 110px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearnce: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 
 .btn {
     width: 100%;
@@ -133,67 +163,46 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     margin-bottom: 8px;
+    box-shadow: 0px 1px 10px 1px black;
 }
 
 .btn-1 {
-    background: #afafaf;
+    background: rgb(79, 103, 150);
     color: white;
 }
 
 .btn-1:hover {
-    background: #d8d5d5;
+    background: rgb(39, 52, 78);
+}
+
+.btn-1.active {
+    background: rgb(120, 150, 200);
+    box-shadow: 0px 1px 10px 1px rgba(120, 150, 200, 0.5);
 }
 
 .btn-2 {
-    background: #afafaf;
+    background: rgb(79, 103, 150);
     color: white;
 }
 
 .btn-2:hover {
-    background: #d8d5d5;
+    background: rgb(39, 52, 78);
 }
 
 .btn-3 {
-    background: #afafaf;
+    background: rgb(79, 103, 150);
     color: white;
 }
 
 .btn-3:hover {
-    background: #d8d5d5;
+    background: rgb(39, 52, 78);
 }
 
 .info-text {
     font-size: 12px;
-    color: var(--secondary-text);
+    color: var(--text-color);
     line-height: 1.5;
     margin-top: 12px;
-}
-
-#theme-switch {
-    height: 50px;
-    width: 50px;
-    padding: 0;
-    border-radius: 50%;
-    background-color: var(--base-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#theme-switch svg {
-    fill: var(--accent-color);
-}
-
-#theme-switch svg:last-child {
-    display: none;
-}
-
-.darkmode #theme-switch svg:first-child {
-    display: none;
-}
-
-.darkmode #theme-switch svg:last-child {
-    display: block;
 }
 
 .land {
@@ -206,6 +215,255 @@ body {
     align-self: flex-end;
 }
 
+.mountain {
+    position: absolute;
+    content: '';
+    bottom: 50px;
+    left: 60px;
+    border-top: 0px solid transparent;
+    border-right: 90px solid transparent;
+    border-bottom: 185px solid #5ad07d;
+    border-left: 90px solid transparent;
+    z-index: 5;
+}
+
+.mountain-shadow {
+    position: absolute;
+    content: '';
+    bottom: 50px;
+    left: 150px;
+    border-top: 0px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 175px solid #357639;
+    border-left: 0px solid transparent;
+    z-index: 5;
+    transform-origin: top right;
+    transform: skewX(18deg);
+}
+
+.snow {
+    position: absolute;
+    content: '';
+    bottom: -98px;
+    left: -48px;
+    border-top: 0px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 100px solid #dddddd;
+    border-left: 47px solid transparent;
+    z-index: 6;
+}
+
+.snow-shadow {
+    position: absolute;
+    content: '';
+    bottom: -85px;
+    left: 0px;
+    border-top: 0px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 100px solid #cccccc;
+    border-left: 0px solid transparent;
+    z-index: 6;
+    transform-origin: top right;
+    transform: skewY(-5deg);
+}
+
+.snow-jagged {
+    position: absolute;
+    content: '';
+    bottom: -130px;
+    left: -45px;
+    border-top: 40px solid #dddddd;
+    border-right: 25px solid transparent;
+    border-bottom: 0px solid transparent;
+    border-left: 25px solid transparent;
+    z-index: 6;
+}
+
+.mountain-1 {
+    position: absolute;
+    content: '';
+    bottom: 50px;
+    left: 30px;
+    border-top: 0px solid transparent;
+    border-right: 65px solid transparent;
+    border-bottom: 75px solid #68F193;
+    border-left: 65px solid transparent;
+    z-index: 5;
+}
+
+.mountain-shadow-1 {
+    position: absolute;
+    content: '';
+    bottom: 50px;
+    left: 95px;
+    border-top: 0px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 75px solid #40945C;
+    border-left: 0px solid transparent;
+    z-index: 5;
+    transform-origin: top right;
+    transform: skewX(18deg);
+}
+
+.mountain-2 {
+    position: absolute;
+    content: '';
+    bottom: 50px;
+    left: 180px;
+    border-top: 0px solid transparent;
+    border-right: 65px solid transparent;
+    border-bottom: 150px solid #68F193;
+    border-left: 65px solid transparent;
+    z-index: 4;
+}
+
+.mountain-shadow-2 {
+    position: absolute;
+    content: '';
+    bottom: 50px;
+    left: 245px;
+    border-top: 0px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 150px solid #40945C;
+    border-left: 0px solid transparent;
+    z-index: 4;
+    transform-origin: top right;
+    transform: skewX(18deg);
+}
+
+.tree-1 {
+    position: absolute;
+    bottom: 60px;
+    left: 400px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-2 {
+    position: absolute;
+    bottom: 50px;
+    left: 430px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-3 {
+    position: absolute;
+    bottom: 40px;
+    left: 387px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-4 {
+    position: absolute;
+    bottom: 70px;
+    left: 453px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-5 {
+    position: absolute;
+    bottom: 32px;
+    left: 447px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-6 {
+    position: absolute;
+    bottom: 37px;
+    left: 413px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-7 {
+    position: absolute;
+    bottom: 48px;
+    left: 465px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-8 {
+    position: absolute;
+    bottom: 70px;
+    left: 420px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-9 {
+    position: absolute;
+    bottom: 36px;
+    left: 484px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-10 {
+    position: absolute;
+    bottom: 45px;
+    left: 507px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-11 {
+    position: absolute;
+    bottom: 67px;
+    left: 492px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+.tree-12 {
+    position: absolute;
+    bottom: 67px;
+    left: 376px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #331c01, #57492b, #0a9e3b, #175a2a, #044419);
+    clip-path: polygon(50% 0, 75% 15%, 55% 10%, 80% 30%, 60% 25%, 85% 50%, 65% 45%, 100% 70%, 55% 60%, 55% 100%, 55% 100%, 45% 100%, 45% 60%, 0 70%, 35% 45%, 15% 50%, 40% 25%, 20% 30%, 45% 10%, 25% 15%);
+    z-index: 5;
+}
+
+
 .water {
     position: absolute;
     background: #0049cf;
@@ -216,13 +474,255 @@ body {
     align-self: flex-end;
 }
 
-.earth {
-    position: relative;
-    height: 300px;
-    width: 300px;
-    border-radius: 100vw;
-    background: url(https://cdn.vectorstock.com/i/750p/35/90/world-map-green-blue-vector-21203590.avif) no-repeat center/cover;
+
+.atmosphere {
+    position: absolute;
+    top: -15px;
+    height: 90%;
+    width: 100%;
+    background: linear-gradient(to top, #4ea6da, #020149);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
+
+.atmosphere.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#pTroposphere {
+    position: absolute;
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-top: 575px;
+    margin-left: 673px;
+    transition: opacity 0.3s ease;
+}
+
+.airplane {
+    position: absolute;
+    top: 600px;
+    right: 200px;
+    background-image: url(airplane.png);
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    animation: fly 8s ease-in-out infinite;
+}
+
+.balloon {
+    position: absolute;
+    top: 607px;
+    left: 320px;
+    background-image: url(balloon.png);
+    background-size: cover;
+    background-position: 10%;
+    height: 50px;
+    width: 50px;
+    animation: float2 4s ease-in-out infinite;
+}
+
+#pStratosphere {
+    position: absolute;
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-top: 400px;
+    margin-left: 670px;
+    transition: opacity 0.3s ease;
+}
+
+.weather-balloon {
+    position: relative;
+    top: 430px;
+    left: 967px;
+    background: radial-gradient(ellipse at 35% 35%, rgba(255, 100, 100, 0.8), rgb(202, 56, 56));
+    height: 10px;
+    width: 12px;
+    border-radius: 50%;
+    box-shadow: -8px -8px 15px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgba(0, 0, 0, 0.15);
+    animation: float1 4s ease-in-out infinite;
+}
+
+.weather-balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes float1 {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotateZ(-1deg);
+    }
+
+    25% {
+        transform: translateY(-15px) rotateZ(1deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotateZ(-1deg);
+    }
+
+    75% {
+        transform: translateY(-15px) rotateZ(1deg);
+    }
+}
+
+@keyframes float2 {
+
+    0%,
+    100% {
+
+        transform: translateY(-15px) rotateZ(1deg);
+    }
+
+    25% {
+        transform: translateY(-30px) rotateZ(-1deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotateZ(1deg);
+    }
+
+    75% {
+        transform: translateY(0px) rotateZ(-1deg);
+    }
+}
+
+@keyframes fly {
+    0% {
+        left: -150px;
+        top: 550px;
+        transform: scaleX(1);
+    }
+
+    50% {
+        top: 500px;
+    }
+
+    100% {
+        left: 100%;
+        top: 550px;
+        transform: scaleX(1);
+    }
+}
+
+#pMesosphere {
+    position: absolute;
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-top: 255px;
+    margin-left: 670px;
+    transition: opacity 0.3s ease;
+}
+
+.meteor {
+    position: absolute;
+    top: 300px;
+    left: 400px;
+    height: 800px;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    animation: float1 20s ease-in-out infinite;
+}
+
+.red {
+    width: 40px;
+    height: 40px;
+    background: orangered;
+    box-shadow: 0px 0px 10px 5px orangered;
+}
+
+.orange {
+    width: 30px;
+    height: 30px;
+    left: 5px;
+    background: orange;
+    box-shadow: 0px 0px 12px 6px orange;
+}
+
+.gold {
+    width: 22.5px;
+    height: 22.5px;
+    left: 9px;
+    background: gold;
+    box-shadow: 0px 0px 9px 4px gold;
+}
+
+.white {
+    width: 17.5px;
+    height: 17.5px;
+    left: 11px;
+    background: lightyellow;
+    box-shadow: 0px 0px 9px 5px lightyellow;
+}
+
+.flame-wrapper {
+    position: relative;
+    animation: flicker 3ms ease-in infinite;
+}
+
+.flame {
+    bottom: 0;
+    position: absolute;
+    border-radius: 50% 0% 50% 50%;
+    transform: rotate(-45deg);
+}
+
+@keyframes flicker {
+    0% {
+        transform: rotate(-1deg);
+    }
+
+    20% {
+        transform: rotate(2deg) scaleY(1.05);
+    }
+
+    40% {
+        transform: rotate(-1deg);
+    }
+
+    60% {
+        transform: rotate(1deg);
+    }
+
+    80% {
+        transform: rotate(-1deg) scaleY(0.90);
+    }
+
+    100% {
+        transform: rotate(1deg);
+    }
+}
+
+#pThermosphere {
+    position: absolute;
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-top: 87px;
+    margin-left: 656px;
+    transition: opacity 0.3s ease;
+}
+
+.satellite {
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    background-image: url(satellite.png);
+    background-size: cover;
+    background-position: 10%;
+    height: 50px;
+    width: 50px;
+    animation: float2 30s ease-in-out infinite;
+}
+
 
 .sun {
     position: absolute;
@@ -238,6 +738,67 @@ body {
 
 .sun:hover {
     transform: scale(1.2) rotate(360deg);
+}
+
+.arrow {
+    --angle: 0deg;
+    --x: 0px;
+    --y: 0px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+
+    width: 6px;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0));
+    animation: none !important;
+    transform: rotate(var(--angle));
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid rgba(255, 0, 0, 0.8);
+}
+
+.arrow.visible {
+    animation: moveUp 2s ease-in-out infinite;
+    opacity: 1;
+}
+
+.arrow.animating {
+    animation: moveUp 2s ease-in-out infinite !important;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: rotate(var(--angle)) translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(var(--angle)) translateY(-150px);
+        opacity: 0;
+    }
 }
 
 .cloud-wrapper {
