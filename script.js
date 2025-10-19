@@ -1,19 +1,49 @@
-let darkmode = localStorage.getItem('darkmode')
-const themeSwitch = document.getElementById('theme-switch')
+const atmosphereBtn = document.getElementById('atmosphereBtn');
+const atmosphere = document.querySelector('.atmosphere');
+const atmosphereElements = document.querySelectorAll('.atmosphere-element');
 
-const enableDarkmode = () => {
-    document.body.classList.add('darkmode')
-    localStorage.setItem('darkmode', 'active')
-}
+let isAtmosphereVisible = false;
 
-const disableDarkmode = () => {
-    document.body.classList.remove('darkmode')
-    localStorage.setItem('darkmode', null)
-}
+atmosphere.classList.add('hidden');
+atmosphereElements.forEach(el => el.classList.add('hidden'));
 
-if (darkmode === "active") enableDarkmode()
+atmosphereBtn.addEventListener('click', () => {
+    isAtmosphereVisible = !isAtmosphereVisible;
 
-themeSwitch.addEventListener("click", () => {
-    darkmode = localStorage.getItem('darkmode')
-    darkmode !== "active" ? enableDarkmode() : disableDarkmode()
-})
+    if (isAtmosphereVisible) {
+        atmosphere.classList.remove('hidden');
+        atmosphereElements.forEach(el => el.classList.remove('hidden'));
+        atmosphereBtn.classList.add('active');
+    } else {
+        atmosphere.classList.add('hidden');
+        atmosphereElements.forEach(el => el.classList.add('hidden'));
+        atmosphereBtn.classList.remove('active');
+    }
+});
+
+
+
+
+const sun = document.querySelector('.sun');
+const arrows = document.querySelectorAll('.arrow');
+
+arrows.forEach(arrow => {
+    arrow.style.opacity = '0';
+    arrow.style.pointerEvents = 'none';
+});
+
+sun.addEventListener('mouseenter', () => {
+    arrows.forEach(arrow => {
+        arrow.classList.add('animating');
+        arrow.style.opacity = '1';
+        arrow.style.pointerEvents = 'auto';
+    });
+});
+
+sun.addEventListener('mouseleave', () => {
+    arrows.forEach(arrow => {
+        arrow.classList.remove('animating');
+        arrow.style.opacity = '0';
+        arrow.style.pointerEvents = 'none';
+    });
+});
