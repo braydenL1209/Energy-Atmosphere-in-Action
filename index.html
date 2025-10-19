@@ -13,9 +13,71 @@
     <div class="container">
         <div class="left-panel">
             <div class="content-area">
+
                 <div class="land"></div>
+                <div class="mountain">
+                    <div class="snow"></div>
+                    <div class="snow-jagged"></div>
+                </div>
+                <div class="mountain-shadow">
+                    <div class="snow-shadow"></div>
+                </div>
+                <div class="mountain-1"></div>
+                <div class="mountain-shadow-1"></div>
+                <div class="mountain-2"></div>
+                <div class="mountain-shadow-2"></div>
+                <div class="tree-1"></div>
+                <div class="tree-2"></div>
+                <div class="tree-3"></div>
+                <div class="tree-4"></div>
+                <div class="tree-5"></div>
+                <div class="tree-6"></div>
+                <div class="tree-7"></div>
+                <div class="tree-8"></div>
+                <div class="tree-9"></div>
+                <div class="tree-10"></div>
+                <div class="tree-11"></div>
+                <div class="tree-12"></div>
+
+
                 <div class="water"></div>
+
+                <div class="atmosphere">
+                    <p id="pTroposphere" class="atmosphere-element">Troposphere</p>
+                    <div class="airplane atmosphere-element"></div>
+                    <div class="balloon atmosphere-element">
+                        <span id="span1"></span>
+                        <span id="span2"></span>
+                    </div>
+                    <p id="pStratosphere" class="atmosphere-element">Stratosphere</p>
+                    <div class="weather-balloon atmosphere-element"></div>
+                    <p id="pMesosphere" class="atmosphere-element">Mesosphere</p>
+                    <div class="meteor atmosphere-element">
+                        <div class="flame-wrapper">
+                            <div class="flame red"></div>
+                            <div class="flame orange"></div>
+                            <div class="flame gold"></div>
+                            <div class="flame white"></div>
+                        </div>
+                    </div>
+                    <p id="pThermosphere" class="atmosphere-element">Thermosphere</p>
+                    <div class="satellite atmosphere-element"></div>
+                </div>
+
+
                 <div class="sun"></div>
+                <div class="arrow" style="--angle: 120deg; --x: 200px; --y: 100px;"></div>
+                <div class="arrow" style="--angle: 120deg; --x: 500px; --y: 300px;"></div>
+                <div class="arrow" style="--angle: 120deg; --x: 800px; --y: 500px;"></div>
+
+                <div class="arrow" style="--angle: 0deg; --x: 1150px; --y: 600px;"></div>
+                <div class="arrow" style="--angle: 0deg; --x: 1350px; --y: 600px;"></div>
+
+                <div class="arrow" style="--angle: 0deg; --x: 1150px; --y: 400px;"></div>
+                <div class="arrow" style="--angle: 0deg; --x: 1350px; --y: 400px;"></div>
+
+                <div class="arrow" style="--angle: 140deg; --x: 150px; --y: 150px;"></div>
+                <div class="arrow" style="--angle: 140deg; --x: 250px; --y: 250px;"></div>
             </div>
         </div>
 
@@ -28,37 +90,36 @@
             <div class="panel-content">
                 <div class="control-group">
                     <label>buttons</label>
-                    <button class="btn btn-1">Button 1</button>
-                    <button class="btn btn-2">Button 2</button>
-                    <button class="btn btn-3">Button 3</button>
+                    <!-- <div class="slideContainer"> -->
+                    <!-- <input type="range" min="1" max="5" value="1" id="range" class="slider"> -->
+                    <!-- <p id="pValue">Value: <span id="value"></span></p> -->
+                    <!-- </div> -->
+
+                    <button class="btn btn-1" id="atmosphereBtn">Atmospheric Layers</button>
+                    <button class="btn btn-2">Water Cycle</button>
+                    <button class="btn btn-3">Weather & Climate</button>
                 </div>
 
                 <div class="control-group">
-                    <label>label</label>
+                    <label>Atmospheric Layers</label>
                     <p class="info-text">a</p>
                     <p class="info-text">b</p>
                     <p class="info-text">c</p>
                 </div>
 
                 <div class="control-group">
-                    <label>label</label>
+                    <label>Water Cycle</label>
                     <p class="info-text">a</p>
                     <p class="info-text">b</p>
                     <p class="info-text">c</p>
                 </div>
 
-                <button id="theme-switch">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#e3e3e3">
-                        <path
-                            d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#e3e3e3">
-                        <path
-                            d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z" />
-                    </svg>
-                </button>
+                <div class="control-group">
+                    <label>Weather & Climate</label>
+                    <p class="info-text">a</p>
+                    <p class="info-text">b</p>
+                    <p class="info-text">c</p>
+                </div>
             </div>
         </div>
     </div>
